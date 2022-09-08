@@ -1,0 +1,19 @@
+{
+  "name": "tabletopfantasygamegenerator",
+  "version": "1.0.0",
+  "description": "Generates content for tabletopfantasygames.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Miroxygen/TableTopFantasyGameGenerator.git"
+  },
+  "author": "Miranda Holmlund",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Miroxygen/TableTopFantasyGameGenerator/issues"
+  },
+  "homepage": "https://github.com/Miroxygen/TableTopFantasyGameGenerator#readme"
+}
