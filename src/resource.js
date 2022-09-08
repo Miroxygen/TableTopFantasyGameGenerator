@@ -7,10 +7,15 @@ export class Resource {
 
     getSpecificResource(search, typeOfResource) {
         const lowerCasesearch = search.toLowerCase()
-        const foundResourse = typeOfResource.find(arrayIndex === lowerCasesearch)
-        if(foundResourse === null) {
+        if(typeOfResource.includes(lowerCasesearch)) {
+            return lowerCasesearch
+        } else {
             return "Resource not found"
         }
-        return foundResourse
+    }
+
+    getRandomResource(resourceArray) {
+        const randomNumber = Math.floor(Math.random() * (resourceArray.length + 1))
+        return resourceArray[randomNumber]
     }
 }

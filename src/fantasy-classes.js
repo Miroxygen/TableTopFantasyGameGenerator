@@ -1,8 +1,9 @@
+import { Resource } from "./resource.js"
 
-
-export class FantasyClasses {
+export class FantasyClasses extends Resource {
     #allFantasyClasses
     constructor() {
+        super()
         this.#allFantasyClasses = ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin",
         "ranger", "rogue", "sorcerer", "warlock", "wizard"]
     }
@@ -13,16 +14,13 @@ export class FantasyClasses {
         return arrayCopy
     }
 
-    getSpecificFantasyClass(fantasyClassSearch) {
-        const lowerCaseFantasyClassSearch = fantasyClassSearch.toLowerCase() 
-        const foundFantasyClass = this.#allFantasyClasses.find(arrayIndex === lowerCaseFantasyClassSearch)
-        if(foundFantasyClass === null) {
-            return "No fantasyclass found"
-        } 
+    getSpecificFantasyClass(search) {
+        const foundFantasyClass = super.getSpecificResource(search, this.#allFantasyClasses)
         return foundFantasyClass
     }
 
     getRandomFantasyClass() {
-
+        const randomFantasyClass = super.getRandomResource(this.#allFantasyClasses)
+        return randomFantasyClass
     }
 }

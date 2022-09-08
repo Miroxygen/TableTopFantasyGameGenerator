@@ -4,7 +4,8 @@ export class CharacterRaces extends Resource {
     #allRaces
     constructor () {
         super()
-        this.#allRaces = []
+        this.#allRaces = ["human", "elf", "dragonborn", "dwarf", "gnome", "half-elf", "halfling",
+         "half-orc", "tiefling"]
     }
 
     getAllRaces() {
@@ -12,20 +13,13 @@ export class CharacterRaces extends Resource {
         return arrayCopy
     }
 
-    get(search) {
+    getSpecificRace(search) {
         const foundRace = super.getSpecificResource(search, this.#allRaces)
         return foundRace
     }
-    /*getSpecificRace(raceSearch) {
-        const lowerCaseRaceSearch = raceSearch.toLowerCase() 
-        const foundFantasyClass = this.#allRaces.find(arrayIndex === lowerCaseRaceSearch)
-        if(foundFantasyClass === null) {
-            return "No fantasyclass found"
-        } 
-        return foundFantasyClass
-    }*/
 
     getRandomRace() {
-
+        const randomRace = super.getRandomResource(this.#allRaces)
+        return randomRace
     }
 }
