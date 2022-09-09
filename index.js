@@ -7,7 +7,7 @@ const fantasyClasses = new FantasyClasses()
 const character = new CharacterGenerator()
 const race = characterRaces.getRandomRace()
 const fantasyClass = fantasyClasses.getRandomFantasyClass()
-character.generateCharacter("Cow")
+character.generateCharacter("Cow", "tiefling", "sorcerer")
 
 console.log(race)
 console.log(fantasyClass)
