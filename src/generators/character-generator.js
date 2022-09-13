@@ -1,5 +1,5 @@
-import { CharacterRaces } from "./character-races.js";
-import { FantasyClasses } from "./fantasy-classes.js";
+import { CharacterRaces } from "../resources/character-races.js";
+import { FantasyClasses } from "../resources/fantasy-classes.js";
 
 export class CharacterGenerator {
     #characterRaces

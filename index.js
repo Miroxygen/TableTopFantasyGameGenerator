@@ -1,6 +1,7 @@
-import { CharacterRaces } from "./src/character-races.js"
-import { FantasyClasses } from "./src/fantasy-classes.js"
-import { CharacterGenerator } from "./src/character-generator.js"
+import { CharacterRaces } from "./src/resources/character-races.js"
+import { FantasyClasses } from "./src/resources/fantasy-classes.js"
+import { CharacterGenerator } from "./src/generators/character-generator.js"
+import './src/html-components/random-character-card.js'
 
 const characterRaces = new CharacterRaces()
 const fantasyClasses = new FantasyClasses()
