@@ -1,4 +1,4 @@
-import { CharacterGenerator } from "../generators/character-generator.js"
+import './random-character-info.js'
 
 const template = document.createElement('template')
 template.innerHTML = `
@@ -7,27 +7,23 @@ template.innerHTML = `
     height:600px;
     width:550px;
     margin:0 auto;
+    background: radial-gradient(circle, rgba(241,241,222,1) 0%, rgba(210,203,149,1) 100%);
 }
 #cardIcon {
     border-radius:50%;
-    height:300px;
+    height:200px;
     position:absolute;
-    width:250px;
-}
-#cardInfo {
-    border:solid black;
-    height:600px;
-    width:550px;
-    position:absolute;
+    width:150px;
+    margin-top:10px;
+    margin-left:330px;
 }
 .hidden {
     display:none;
 }
 </style>
 <div id="card">
+<random-character-info></random-character-info>
 <img id="cardIcon" src="../../images/sorceress.jpg">
-<div id="cardInfo" class="hidden">
-</div>
 </div>
 `
 
@@ -36,7 +32,6 @@ customElements.define('random-character-card',
 class extends HTMLElement {
     #card
     #cardIcon
-    #cardInfo
     constructor() {
         super()
         this.attachShadow({ mode: 'open' })
@@ -44,23 +39,12 @@ class extends HTMLElement {
 
         this.#card = this.shadowRoot.querySelector('#card')
         this.#cardIcon = this.shadowRoot.querySelector('#cardIcon')
-        this.#cardInfo = this.shadowRoot.querySelector('#cardInfo')
-        this.characterGenerator = new CharacterGenerator()
-        this.characterGenerator.generateCharacter('Alina')
-        this.characterInfo = this.characterGenerator.getCharacterStats()
-        this.#card.addEventListener('click', (event) => {
+        /*this.#card.addEventListener('click', (event) => {
              this.flipCharacterCard()
-             this.displayCardInfo()
-        })
+        })*/
     }
 
     flipCharacterCard() {
         this.#cardIcon.classList.toggle('hidden')
-        this.#cardInfo.classList.toggle('hidden')
-    }
-
-    displayCardInfo() {
-        const characterInfo = this.characterGenerator.getCharacterStats()
-        this.#cardInfo.textContent = `Name : ${characterInfo.Name}  Class : ${characterInfo.Class} \n Race : ${characterInfo.Race}`
     }
 })
