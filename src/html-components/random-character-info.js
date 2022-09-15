@@ -7,7 +7,6 @@ template.innerHTML = `
     height:600px;
     width:550px;
     position:absolute;
-    background: radial-gradient(circle, rgba(241,241,222,1) 0%, rgba(210,203,149,1) 100%);
 }
 #nameHolder {
     height:40px;

@@ -17,11 +17,31 @@ template.innerHTML = `
     margin-top:10px;
     margin-left:330px;
 }
+#sheetToggleButton {
+    height:100px;
+    width:100px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(241,241,222,1) 0%, rgba(136,127,173,1) 100%);
+    margin:0 auto;
+    transition:transform 1.5s;
+}
 .hidden {
     display:none;
 }
+.sheetToggleButtonStyleWhenSheetIsVisble {
+    transform: translate(0, 50px);
+}
+.opacity {
+    opacity:0;
+    transition: opacity 0.5s ease-in-out;
+}
+.scaleAnimation {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
 </style>
-<div id="card">
+<div id="sheetToggleButton"></div>
+<div id="card" class="opacity">
 <random-character-info></random-character-info>
 <img id="cardIcon" src="../../images/sorceress.jpg">
 </div>
@@ -32,19 +52,22 @@ customElements.define('random-character-card',
 class extends HTMLElement {
     #card
     #cardIcon
+    #sheetToggleButton
     constructor() {
         super()
         this.attachShadow({ mode: 'open' })
         .appendChild(template.content.cloneNode(true))
 
         this.#card = this.shadowRoot.querySelector('#card')
+        this.#sheetToggleButton = this.shadowRoot.querySelector('#sheetToggleButton')
         this.#cardIcon = this.shadowRoot.querySelector('#cardIcon')
-        /*this.#card.addEventListener('click', (event) => {
+        this.#sheetToggleButton.addEventListener('click', (event) => {
              this.flipCharacterCard()
-        })*/
+        })
     }
 
     flipCharacterCard() {
-        this.#cardIcon.classList.toggle('hidden')
+        this.#card.classList.toggle('scaleAnimation')
+        this.#sheetToggleButton.classList.toggle('sheetToggleButtonStyleWhenSheetIsVisble')
     }
 })
