@@ -7,6 +7,7 @@ export class Attributes extends Resource {
     #dexterity
     #intelligence
     #charisma
+    #constitution
     #attributeValues
     constructor() {
         super()
@@ -15,13 +16,57 @@ export class Attributes extends Resource {
         this.#charisma
         this.#dexterity
         this.#intelligence
-        this.#strength
         this.#wisdom
+        this.#constitution
     }
 
-    getRandomizedAttributes() {
+    getRandomAttributeValue() {
+        const attributeValue =  super.getRandomResource(this.#attributeValues)
+        return attributeValue
+    }
+
+    setRandomStrength() {
+        const strengthValue = this.getRandomAttributeValue()
+        this.#strength = strengthValue 
+    }
+
+    setRandomCharisma() {
+        const charismaValue = this.getRandomAttributeValue()
+        this.#charisma = charismaValue
+    }
+
+    setRandomDexterity() {
+        const dexterityValue = this.getRandomAttributeValue()
+        this.#dexterity = dexterityValue
+    }
+
+    setRandomIntelligence() {
+        const intelligenceValue = this.getRandomAttributeValue()
+        this.#intelligence = intelligenceValue
+    }
+
+    setRandomWisdom() {
+        const widsomValue = this.getRandomAttributeValue()
+        this.#wisdom = widsomValue
+    }
+
+    setRandomConstitution() {
+        const constitutionValue = this.getRandomAttributeValue()
+        this.#constitution = constitutionValue
+    }
+
+    setAllValuesRandom() {
+        this.setRandomCharisma()
+        this.setRandomConstitution()
+        this.setRandomDexterity()
+        this.setRandomIntelligence()
+        this.setRandomWisdom()
+        this.setRandomStrength()
+    }
+
+    getAttributes() {
         const attributes = {"Strength : " : this.#strength, "Charisma : " : this.#charisma, "Dexterity : " : this.#dexterity, "Intelligence : " : this.#intelligence,
-        "Strength : " : this.#strength, "Wisdom : " : this.#wisdom}
+        "Strength : " : this.#strength, "Wisdom : " : this.#wisdom, "Constituion : " : this.#constitution}
         return attributes
     }
 }
