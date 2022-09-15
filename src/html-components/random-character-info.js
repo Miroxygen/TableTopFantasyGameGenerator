@@ -37,6 +37,16 @@ template.innerHTML = `
     padding:15px;
     position:absolute;
 }
+#attributesHolder {
+    margin-top:200px;
+    margin-left:40px;
+    height:90px;
+    width:450px;
+    border:solid black;
+    font-size:20px;
+    padding:15px;
+    position:absolute;
+}
 .hidden {
     display:none;
 }
@@ -45,6 +55,7 @@ template.innerHTML = `
 <div id="nameHolder"></div>
 <div id="classHolder"></div>
 <div id="raceHolder"></div>
+<div id="attributesHolder"></div>
 </div>
 `
 
@@ -55,6 +66,7 @@ class extends HTMLElement {
     #nameHolder
     #classHolder
     #raceHolder
+    #attributesHolder
     constructor() {
         super()
         this.attachShadow({ mode: 'open' })
@@ -64,11 +76,13 @@ class extends HTMLElement {
         this.#nameHolder = this.shadowRoot.querySelector('#nameHolder')
         this.#classHolder = this.shadowRoot.querySelector('#classHolder')
         this.#raceHolder = this.shadowRoot.querySelector('#raceHolder')
+        this.#attributesHolder = this.shadowRoot.querySelector('#attributesHolder')
         this.characterGenerator = new CharacterGenerator()
         this.characterGenerator.generateCharacter('Alina')
         this.characterInfo = this.characterGenerator.getCharacterStats()
         this.#nameHolder.textContent = this.characterInfo.Name
         this.#classHolder.textContent = `Class : ${this.characterInfo.Class}`
         this.#raceHolder.textContent = `Race : ${this.characterInfo.Race}`
+        this.#attributesHolder.textContent = this.characterInfo.Traits
     }
 })

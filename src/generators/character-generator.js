@@ -1,15 +1,19 @@
 import { CharacterRaces } from "../resources/character-races.js";
 import { FantasyClasses } from "../resources/fantasy-classes.js";
+import { Attributes } from "../resources/attributes.js";
 
 export class CharacterGenerator {
     #characterRaces
     #fantasyClasses
+    #attributes
     constructor() {
         this.#characterRaces = new CharacterRaces()
         this.#fantasyClasses = new FantasyClasses()
+        this.#attributes = new Attributes()
         this.name
         this.race
         this.charClass
+        this.attributes
     }
 
     setName(name) {
@@ -36,13 +40,19 @@ export class CharacterGenerator {
         }
     }
 
+    setAttributes() {
+        this.#attributes.setAllValuesRandom()
+        this.attributes = this.#attributes.getAttributes()
+    }
+
     generateCharacter(name, race, charClass) {
         this.setName(name)
         this.setRace(race)
         this.setClass(charClass)
+        this.setAttributes()
     }
 
     getCharacterStats() {
-        return {"Name" : this.name, "Race" : this.race, "Class" : this.charClass}
+        return {"Name" : this.name, "Race" : this.race, "Class" : this.charClass, "Traits": this.attributes}
     }
 }

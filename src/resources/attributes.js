@@ -65,8 +65,8 @@ export class Attributes extends Resource {
     }
 
     getAttributes() {
-        const attributes = {"Strength : " : this.#strength, "Charisma : " : this.#charisma, "Dexterity : " : this.#dexterity, "Intelligence : " : this.#intelligence,
-        "Strength : " : this.#strength, "Wisdom : " : this.#wisdom, "Constituion : " : this.#constitution}
+        const attributes = `Strength : ${this.#strength} Charisma :  ${this.#charisma} Dexterity : ${this.#dexterity} Intelligence : ${this.#intelligence}
+        Strength : ${this.#strength} Wisdom : ${this.#wisdom} Constituion : ${this.#constitution}`
         return attributes
     }
 }
