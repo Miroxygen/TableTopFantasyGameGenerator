@@ -15,7 +15,7 @@ export class Resource {
     }
 
     getRandomResource(resourceArray) {
-        const randomNumber = Math.floor(Math.random() * (resourceArray.length + 1))
+        const randomNumber = Math.floor(Math.random() * resourceArray.length)
         return resourceArray[randomNumber]
     }
 }

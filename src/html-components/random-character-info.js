@@ -9,7 +9,7 @@ template.innerHTML = `
     position:absolute;
 }
 #nameHolder {
-    height:40px;
+    height:60px;
     width:230px;
     border:solid black;
     margin-top:60px;
@@ -78,8 +78,7 @@ class extends HTMLElement {
         this.#raceHolder = this.shadowRoot.querySelector('#raceHolder')
         this.#attributesHolder = this.shadowRoot.querySelector('#attributesHolder')
         this.characterGenerator = new CharacterGenerator()
-        this.characterGenerator.generateCharacter('Alina')
-        this.characterInfo = this.characterGenerator.getCharacterStats()
+        this.characterInfo = this.characterGenerator.getCharacter()
         this.#nameHolder.textContent = this.characterInfo.Name
         this.#classHolder.textContent = `Class : ${this.characterInfo.Class}`
         this.#raceHolder.textContent = `Race : ${this.characterInfo.Race}`

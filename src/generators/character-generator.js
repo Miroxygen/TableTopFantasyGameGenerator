@@ -1,43 +1,36 @@
 import { CharacterRaces } from "../resources/character-races.js";
 import { FantasyClasses } from "../resources/fantasy-classes.js";
 import { Attributes } from "../resources/attributes.js";
+import { CharacterNames } from "../resources/character-names.js";
 
 export class CharacterGenerator {
     #characterRaces
     #fantasyClasses
     #attributes
+    #characterName
     constructor() {
         this.#characterRaces = new CharacterRaces()
         this.#fantasyClasses = new FantasyClasses()
         this.#attributes = new Attributes()
+        this.#characterName = new CharacterNames()
         this.name
         this.race
         this.charClass
         this.attributes
     }
 
-    setName(name) {
-        if(name === undefined) {
-            this.name = "Unknown name"
-        } else {
-            this.name = name
-        }
+    setName() {
+        this.name = this.#characterName.getRandomNameBasedOnRace(this.race)
     }
 
-    setRace(race) {
-        if(race === undefined) {
-            this.race = this.#characterRaces.getRandomRace()
-        } else {
-            this.race = race
-        }
+    setRace() {
+        this.race = this.#characterRaces.getRandomRace()
+        
     }
 
-    setClass(charClass) {
-        if(charClass === undefined) {
-            this.charClass = this.#fantasyClasses.getRandomFantasyClass()
-        } else {
-            this.charClass = charClass
-        }
+    setClass() {  
+        this.charClass = this.#fantasyClasses.getRandomFantasyClass()
+       
     }
 
     setAttributes() {
@@ -45,14 +38,15 @@ export class CharacterGenerator {
         this.attributes = this.#attributes.getAttributes()
     }
 
-    generateCharacter(name, race, charClass) {
-        this.setName(name)
-        this.setRace(race)
-        this.setClass(charClass)
+    generateCharacter() {
+        this.setRace()
+        this.setClass()
         this.setAttributes()
+        this.setName()
     }
 
-    getCharacterStats() {
+    getCharacter() {
+        this.generateCharacter()
         return {"Name" : this.name, "Race" : this.race, "Class" : this.charClass, "Traits": this.attributes}
     }
 }

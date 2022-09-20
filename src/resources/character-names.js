@@ -2,7 +2,7 @@
 * All names are courtesy of https://www.fantasynamegenerators.com/
 */
 
-import { Resource } from "./resource";
+import { Resource } from "./resource.js";
 
 
 
