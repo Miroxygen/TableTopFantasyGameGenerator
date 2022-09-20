@@ -30,7 +30,6 @@ export class CharacterGenerator {
 
     setClass() {  
         this.charClass = this.#fantasyClasses.getRandomFantasyClass()
-       
     }
 
     setAttributes() {
