@@ -14,9 +14,10 @@ template.innerHTML = `
     position:absolute;
 }
 #subtypeHolder {
+    background: rgba(247,241,245, 0.3);
     height:60px;
     width:230px;
-    border:ridge black;
+    border:ridge #828778;
     border-radius:5px;
     margin-top:120px;
     margin-left:30px;
@@ -24,11 +25,12 @@ template.innerHTML = `
     font-size:30px;
 }
 #typeHolder {
+    background: rgba(247,241,245, 0.3);
     margin-top:60px;
     margin-left:50px;
     height:25px;
     width:150px;
-    border:ridge black;
+    border:ridge #828778;
     border-radius:5px;
     font-size:20px;
     padding:15px;
@@ -36,11 +38,12 @@ template.innerHTML = `
     border-bottom:none;
 }
 #attackHolder{
+    background: rgba(247,241,245, 0.3);
     margin-top:240px;
     margin-left:60px;
     height:55px;
     width:400px;
-    border:ridge black;
+    border:ridge #828778;
     border-radius:5px;
     font-size:20px;
     padding:15px;
@@ -56,7 +59,8 @@ template.innerHTML = `
 }
 
 td {
-    border:ridge black;
+    background: rgba(247,241,245, 0.3);
+    border:ridge #828778;
     border-radius:50%;
     padding:10px;
     display:block;

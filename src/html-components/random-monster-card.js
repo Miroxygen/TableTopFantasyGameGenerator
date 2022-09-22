@@ -22,5 +22,8 @@ class extends HTMLElement {
         .appendChild(template.content.cloneNode(true))
 
         this.#card = this.shadowRoot.querySelector('#card')
+        this.#card.addEventListener('click', () => {
+            this.#card.setMonsterStyle()
+        })
     }
 })

@@ -5,8 +5,8 @@ template.innerHTML = `
     height:600px;
     width:550px;
     margin:0 auto;
-    background: radial-gradient(circle, rgba(241,241,222,1) 0%, rgba(210,203,149,1) 100%);
 }
+
 #cardIcon {
     border-radius:50%;
     height:200px;
@@ -19,9 +19,9 @@ template.innerHTML = `
     height:100px;
     width:100px;
     border-radius:50%;
-    background: radial-gradient(circle, rgba(241,241,222,1) 0%, rgba(136,127,173,1) 100%);
     margin:0 auto;
     transition:transform 1.5s;
+    background: radial-gradient(circle, rgba(200,223,245,1) 0%, rgba(121,134,89,1) 100%);
 }
 .hidden {
     display:none;
@@ -36,6 +36,13 @@ template.innerHTML = `
 .scaleAnimation {
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
+}
+.characterStyleCard {
+    background: radial-gradient(circle, rgba(241,241,222,1) 0%, rgba(210,203,149,1) 100%);
+}
+
+.monsterStyleCard {
+    background: radial-gradient(circle, rgba(252,213,161,1) 0%, rgba(190,16,16,1) 100%);
 }
 </style>
 <div id="sheetToggleButton"></div>
@@ -64,5 +71,13 @@ class extends HTMLElement {
     openCard() {
         this.#card.classList.toggle('scaleAnimation')
         this.#sheetToggleButton.classList.toggle('sheetToggleButtonStyleWhenSheetIsVisble')
+    }
+
+    setMonsterStyle() {
+        this.#card.classList.add('monsterStyleCard')
+    }
+
+    setCharacterStyle() {
+        this.#card.classList.add('characterStyleCard')
     }
 })
