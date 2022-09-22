@@ -39,32 +39,32 @@ export class MonsterAttack extends Resource {
         switch (type) {
             case "celesital":
                 return this.#celestialNormalAttacks
-            case "dragon":
+            case "Dragon":
                 return this.#dragonNormalAttacks
-            case "aberration":
+            case "Aberration":
                 return this.#aberrationNormalAttacks
-            case "humanoid":
-                this.#humanoidNormalAttacks
-            case "plant":
+            case "Humanoid":
+                return this.#humanoidNormalAttacks
+            case "Plant":
                 return this.#plantNormalAttacks
-            case "undead":
+            case "Undead":
                 return this.#undeadNormalAttacks
         }
     }
 
     getCorrectLegendaryAttackArray(type) {
         switch (type) {
-            case "celesital":
+            case "Celesital":
                 return this.#celestialLegendaryAttacks
-            case "dragon":
+            case "Dragon":
                 return this.#dragonLegendaryAttacks
-            case "aberration":
+            case "Aberration":
                 return this.#aberrationLegendaryAttacks
-            case "humanoid":
+            case "Humanoid":
                 return this.#humanoidLegendaryAttacks
-            case "plant":
+            case "Plant":
                 return this.#plantLegendaryAttacks
-            case "undead":
+            case "Undead":
                 return this.#undeadLegendaryAttacks
         }
     }

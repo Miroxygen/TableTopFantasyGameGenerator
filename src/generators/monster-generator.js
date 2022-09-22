@@ -48,8 +48,8 @@ export class MonsterGenerator {
 
     getRandomMonster() {
         this.generateMonster()
-        const randomMonster = {"Type " : this.monsterType, "Subtype " : this.monsterSubType, "Traits " : this.monsterAttributes,
-            "Normal attack " : this.monsterNormalAttack, "Legendary Attack " : this.monsterLegendaryAttack} 
+        const randomMonster = {"Type" : this.monsterType, "Subtype" : this.monsterSubType, "Traits" : this.monsterAttributes,
+            "NormalAttack" : this.monsterNormalAttack, "LegendaryAttack" : this.monsterLegendaryAttack} 
         return randomMonster
     }
 }

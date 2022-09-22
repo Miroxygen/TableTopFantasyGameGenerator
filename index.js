@@ -12,8 +12,11 @@ console.log(myChar)
 
 const fantasyComponentConnector = new FantasyComponentConnector()
 const element = document.getElementById("holder")
-fantasyComponentConnector.connectCharacterCard(element)
+//fantasyComponentConnector.connectCharacterCard(element)
 
 const monsterGenerator = new MonsterGenerator()
 const monster = monsterGenerator.getRandomMonster()
 console.log(monster)
+
+const monsterEle = document.getElementById("monster")
+//fantasyComponentConnector.connectMonsterCard(monsterEle)

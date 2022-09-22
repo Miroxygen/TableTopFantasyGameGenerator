@@ -7,7 +7,7 @@ export class MonsterType extends Resource{
     #type
     constructor() {
         super()
-        this.#allMonsterTypes = ["celestial", "dragon", "aberration", "humanoid", "plant", "undead"]
+        this.#allMonsterTypes = ["Celestial", "Dragon", "Aberration", "Humanoid", "Plant", "Undead"]
         this.#type
     }
 

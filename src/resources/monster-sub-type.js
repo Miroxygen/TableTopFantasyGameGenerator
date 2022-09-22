@@ -10,12 +10,12 @@ export class MonsterSubType extends Resource {
     #undeadSubtypes
     constructor() {
         super()
-        this.#aberrationSubtypes = ["beholder", "chuul", "death slaad", "elder brain", "puppetteer parasite"]
-        this.#celestialSubtypes = ["aurelia", "pegasus", "solar", "unicorn", "star lancer"]
-        this.#dragonSubtypes = ["crystal dragon", "deep dragon", "moonstone dragon", "ancient dragon", "sea serpant"]
-        this.#humanoidSubtypes = ["acolyte", "blood witch", "dragonhunter", "evoker", "cultist"]
-        this.#plantSubtypes = ["corpse flower", "elder tree", "spriggan", "yggdrasti", "kelpie"]
-        this.#undeadSubtypes = ["ash zombie", "dread warrior", "elder vampire", "lich", "revenant"]
+        this.#aberrationSubtypes = ["Beholder", "Chuul", "Death slaad", "Elder brain", "Puppetteer parasite"]
+        this.#celestialSubtypes = ["Aurelia", "Pegasus", "Solar", "Unicorn", "Star lancer"]
+        this.#dragonSubtypes = ["Crystal dragon", "Deep dragon", "Moonstone dragon", "Ancient dragon", "Sea serpant"]
+        this.#humanoidSubtypes = ["Acolyte", "Blood witch", "Dragonhunter", "Evoker", "Cultist"]
+        this.#plantSubtypes = ["Corpse flower", "Elder tree", "Spriggan", "Yggdrasti", "Kelpie"]
+        this.#undeadSubtypes = ["Ash zombie", "Dread warrior", "Elder vampire", "Lich", "Revenant"]
     }
 
     getRandomSubtypeBasedOnType(type) {
@@ -26,17 +26,17 @@ export class MonsterSubType extends Resource {
 
     getCorrectSubTypeArray(type) {
         switch (type) {
-            case "celesital":
+            case "Celesital":
                 return this.#celestialSubtypes
-            case "dragon":
+            case "Dragon":
                 return this.#dragonSubtypes
-            case "aberration":
+            case "Aberration":
                 return this.#aberrationSubtypes
-            case "humanoid":
+            case "Humanoid":
                 return this.#humanoidSubtypes
-            case "plant":
+            case "Plant":
                 return this.#plantSubtypes
-            case "undead":
+            case "Undead":
                 return this.#undeadSubtypes
         }
     }
