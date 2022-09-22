@@ -15,6 +15,7 @@ export class CharacterNames extends Resource {
     #halfElfNames
     #halfOrcNames
     #tieflingNames
+    #halflingNames
     constructor() {
         super()
         this.#dragonbornNames = ["Kipekmus Therlyassa","Tompanshton Oribith", "Yimpac BelfyireCuuxakmik", "JogissaNimbak Ushidrish", "Fumrashkmal Malcoria",
@@ -30,15 +31,24 @@ export class CharacterNames extends Resource {
         this.#humanNames = ["Zeifeihmuh Dimal", "Ohluh Pihum", "Kondruchill Bloodflow", "Mosva Wyvernwood", "Hino Shev", "Ven Kokrotsk", "Bothralo Emberbrooke",
         "Kostro Coldrunner","Cimiro Sanzavakt", "Somo Muvakt", "Thafemza Gobeveku", "Nivruth Norkirgu", "Qui Qiao", "Tsiao An", "Mitd Jehundos", "Bans Pezorne"]
         this.#tieflingNames = ["Zafirith", "Nethmeia", "Yuhiri", "Zedoris", "Nelies", "Levfirith", "Orifaris", "Inmaia", "Afyis", "Nithseis"]
+        this.#halflingNames = ["Kithprys Fogcrest", "Froyra Rumbleberry", "Erasira Cherrybrook", "Fendrey Moonblossom", "Jayvira Summerdancer", "Arila Earthgrove",
+            "Verzira Commonrabbit", "Eilile Brushmane", "Frozira Grandmouse", "Welsica Rosebottle"]
     }
 
+    /**
+     * @param {string} race Race variable from the class CharacterRaces. See character-races.js
+     */
     getRandomNameBasedOnRace(race) {
-        const nameArray = this.getCorrectNameArray(race)
+        const nameArray = this.#getCorrectNameArray(race)
         const randomName = super.getRandomResource(nameArray)
         return randomName
     }
 
-    getCorrectNameArray(race) {
+    /**
+     * @param {string} race Race variable from the class CharacterRaces. See character-races.js
+     * @returns Array with strings.
+     */
+    #getCorrectNameArray(race) {
         switch (race) {
             case "dragonborn":
                 return this.#dragonbornNames
@@ -56,6 +66,8 @@ export class CharacterNames extends Resource {
                 return this.#humanNames   
             case "tiefling":
                 return this.#tieflingNames
+            case "halfling":
+            return this.#halflingNames
         }
     }
 }

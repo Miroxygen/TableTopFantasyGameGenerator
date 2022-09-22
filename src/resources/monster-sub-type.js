@@ -18,15 +18,20 @@ export class MonsterSubType extends Resource {
         this.#undeadSubtypes = ["Ash zombie", "Dread warrior", "Elder vampire", "Lich", "Revenant"]
     }
 
+    /**
+     * @param {string} type A value given from the class MonsterType see monster-type.js 
+     */
     getRandomSubtypeBasedOnType(type) {
-        const subtypeArray = this.getCorrectSubTypeArray(type)
-        const randomSubtype = super.getRandomResource(subtypeArray)
+        const randomSubtype = super.getRandomResource(this.#getCorrectSubTypeArray(type))
         return randomSubtype
     }
 
-    getCorrectSubTypeArray(type) {
+    /**
+     * @param {string} type A value given from the class MonsterType see monster-type.js 
+     */
+    #getCorrectSubTypeArray(type) {
         switch (type) {
-            case "Celesital":
+            case "Celestial":
                 return this.#celestialSubtypes
             case "Dragon":
                 return this.#dragonSubtypes

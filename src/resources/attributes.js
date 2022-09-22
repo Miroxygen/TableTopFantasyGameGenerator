@@ -9,64 +9,68 @@ export class Attributes extends Resource {
     #charisma
     #constitution
     #attributeValues
+    #attributeString
     constructor() {
         super()
-        this.#attributeValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        this.#attributeValues = ["1", "2", "3", "4", "5"," 6", "7", "8", "9", "10"]
         this.#strength
         this.#charisma
         this.#dexterity
         this.#intelligence
         this.#wisdom
         this.#constitution
+        this.#attributeString
     }
 
-    getRandomAttributeValue() {
+    #getRandomAttributeValue() {
         const attributeValue =  super.getRandomResource(this.#attributeValues)
         return attributeValue
     }
 
-    setRandomStrength() {
-        const strengthValue = this.getRandomAttributeValue()
-        this.#strength = strengthValue 
+    #setRandomStrength() {
+        this.#strength = this.#getRandomAttributeValue()
     }
 
-    setRandomCharisma() {
-        const charismaValue = this.getRandomAttributeValue()
-        this.#charisma = charismaValue
+    #setRandomCharisma() {
+        this.#charisma = this.#getRandomAttributeValue()
     }
 
-    setRandomDexterity() {
-        const dexterityValue = this.getRandomAttributeValue()
-        this.#dexterity = dexterityValue
+    #setRandomDexterity() {
+        this.#dexterity = this.#getRandomAttributeValue()
     }
 
-    setRandomIntelligence() {
-        const intelligenceValue = this.getRandomAttributeValue()
-        this.#intelligence = intelligenceValue
+    #setRandomIntelligence() {
+        this.#intelligence = this.#getRandomAttributeValue()
     }
 
-    setRandomWisdom() {
-        const widsomValue = this.getRandomAttributeValue()
-        this.#wisdom = widsomValue
+    #setRandomWisdom() {
+        this.#wisdom = this.#getRandomAttributeValue()
     }
 
-    setRandomConstitution() {
-        const constitutionValue = this.getRandomAttributeValue()
-        this.#constitution = constitutionValue
+    #setRandomConstitution() {
+        this.#constitution = this.#getRandomAttributeValue()
     }
 
-    setAllValuesRandom() {
-        this.setRandomCharisma()
-        this.setRandomConstitution()
-        this.setRandomDexterity()
-        this.setRandomIntelligence()
-        this.setRandomWisdom()
-        this.setRandomStrength()
+    #setAllValuesRandom() {
+        this.#setRandomCharisma()
+        this.#setRandomConstitution()
+        this.#setRandomDexterity()
+        this.#setRandomIntelligence()
+        this.#setRandomWisdom()
+        this.#setRandomStrength()
+    }
+
+    /**
+     * Values need to be randomized first with setAllValuesRandom.
+     */
+    #makeStringFromRandomValues() {
+        this.#attributeString = `Strength ${this.#strength}, Charisma ${this.#charisma}, Dexterity ${this.#dexterity}, Intelligence ${this.#intelligence},
+        Wisdom ${this.#wisdom}, Constituion ${this.#constitution}`
     }
 
     getAttributes() {
-        const attributes = `Strength : ${this.#strength}, Charisma :  ${this.#charisma}, Dexterity : ${this.#dexterity}, Intelligence : ${this.#intelligence},
-            Wisdom : ${this.#wisdom}, Constituion : ${this.#constitution}`
-        return attributes
+        this.#setAllValuesRandom()
+        this.#makeStringFromRandomValues()
+        return this.#attributeString
     }
 }

@@ -8,14 +8,9 @@ export class CharacterRaces extends Resource {
          "half-orc", "tiefling"]
     }
 
-    getAllRaces() {
+    #getAllRaces() {
         const arrayCopy = Array.from(this.#allRaces)
         return arrayCopy
-    }
-
-    getSpecificRace(search) {
-        const foundRace = super.getSpecificResource(search, this.#allRaces)
-        return foundRace
     }
 
     getRandomRace() {

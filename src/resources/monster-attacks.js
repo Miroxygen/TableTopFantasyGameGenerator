@@ -35,9 +35,14 @@ export class MonsterAttack extends Resource {
         this.#undeadLegendaryAttacks = ["Infernal Ice", "Trembling Transformation", "Eternal ending"]
     }
 
-    getCorrectNormalAttackArray(type) {
+    /**
+     * Correct means according to type.
+     * @param {string} type A value given from the class MonsterType see monster-type.js
+     * @returns Array of strings.
+     */
+    #getCorrectNormalAttackArray(type) {
         switch (type) {
-            case "celesital":
+            case "Celestial":
                 return this.#celestialNormalAttacks
             case "Dragon":
                 return this.#dragonNormalAttacks
@@ -52,9 +57,14 @@ export class MonsterAttack extends Resource {
         }
     }
 
-    getCorrectLegendaryAttackArray(type) {
+    /**
+     * Correct means according to type.
+     * @param {string} type A value given from the class MonsterType see monster-type.js
+     * @returns Array of strings.
+     */
+    #getCorrectLegendaryAttackArray(type) {
         switch (type) {
-            case "Celesital":
+            case "Celestial":
                 return this.#celestialLegendaryAttacks
             case "Dragon":
                 return this.#dragonLegendaryAttacks
@@ -68,13 +78,29 @@ export class MonsterAttack extends Resource {
                 return this.#undeadLegendaryAttacks
         }
     }
+    
+    /**
+     * @param {string} type A value given from the class MonsterType see monster-type.js 
+     */
+    #setNormalAttack(type) {
+        this.#normalAttack = super.getRandomResource(this.#getCorrectNormalAttackArray(type))
+    }
 
+    /**
+     * @param {string} type A value given from the class MonsterType see monster-type.js 
+     */
+    #setLegendaryAttack(type) {
+        this.#legendaryAttack = super.getRandomResource(this.#getCorrectLegendaryAttackArray(type))
+    }
+
+    /**
+     * @param {string} type A value given from the class MonsterType see monster-type.js
+     * @returns Object with strings.
+     */
     getRandomAttacksBasedOnType(type) {
-        const normalAttackArray = this.getCorrectNormalAttackArray(type)
-        const legendaryAttackArray = this.getCorrectLegendaryAttackArray(type)
-        const randomNormalAttack = super.getRandomResource(normalAttackArray)
-        const randomLegendaryAttack = super.getRandomResource(legendaryAttackArray)
-        return {"Normal" : randomNormalAttack, "Legendary" : randomLegendaryAttack}
+        this.#setNormalAttack(type)
+        this.#setLegendaryAttack(type)
+        return {"Normal" : this.#normalAttack, "Legendary" : this.#legendaryAttack}
     }
 }
 

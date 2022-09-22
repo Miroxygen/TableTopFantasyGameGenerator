@@ -1,19 +1,25 @@
 import './html-components/random-character-card.js'
 import './html-components/random-monster-card.js'
 
-export class FantasyComponentConnector {
-    constructor() {
 
+/**
+ * The fantasy component are custom HTML components.
+ * This class can connect the custom ones to an HTML
+ * component in your document.
+ */
+export class FantasyComponentConnector {
+    #characterCard
+    #monsterCard
+    constructor() {
+        this.#characterCard = document.createElement('random-character-card')
+        this.#monsterCard = document.createElement('random-monster-card')
     }
 
     connectCharacterCard(HTMLElement) {
-        const characterCard = document.createElement('random-character-card')
-        HTMLElement.appendChild(characterCard)
+        HTMLElement.appendChild(this.#characterCard)
     }
 
     connectMonsterCard(HTMLElement) {
-        const monsterCard = document.createElement('random-monster-card')
-        HTMLElement.appendChild(monsterCard)
-    }
-    
+        HTMLElement.appendChild(this.#monsterCard)
+    }  
 }

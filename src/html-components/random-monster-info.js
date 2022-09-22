@@ -1,6 +1,10 @@
 import { MonsterGenerator } from "../generators/monster-generator.js"
 import { getArrayFromString } from "../helper-functions/string-to-array.js"
 
+const monsterGenerator = new MonsterGenerator()
+const monsterInfo = monsterGenerator.getRandomMonster()
+const monsterAttributes = getArrayFromString(monsterInfo.Traits, ",")
+
 const template = document.createElement('template')
 template.innerHTML = `
 <style>
@@ -77,18 +81,19 @@ table {
 }
 </style>
 <div id="cardInfo">
-<div id="typeHolder"></div>
-<div id="subtypeHolder"></div>
-<div id="attackHolder">
+<div id="typeHolder">${monsterInfo.Type}</div>
+<div id="subtypeHolder">${monsterInfo.Subtype}</div>
+<div id="attackHolder">Main attack : ${monsterInfo.NormalAttack}
+Legendary attack : ${monsterInfo.LegendaryAttack}
 </div>
 <table id="attributesHolder">
     <tr id="tableHolder">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>  
+        <td>${monsterAttributes[0]}</td>
+        <td>${monsterAttributes[1]}</td>
+        <td>${monsterAttributes[2]}</td>
+        <td>${monsterAttributes[3]}</td>
+        <td>${monsterAttributes[4]}</td>
+        <td>${monsterAttributes[5]}</td>  
     </tr>
 </table>
 </div>
@@ -97,37 +102,10 @@ table {
 customElements.define('random-monster-info', 
 
 class extends HTMLElement {
-    #cardInfo
-    #typeHolder
-    #subtypeHolder
-    #attackHolder
-    #tableHolder
-    #attributesHolder
-    #attributes
+    
     constructor() {
         super()
         this.attachShadow({ mode: 'open' })
         .appendChild(template.content.cloneNode(true))
-
-        this.#cardInfo = this.shadowRoot.querySelector('#cardInfo')
-        this.#typeHolder = this.shadowRoot.querySelector('#typeHolder')
-        this.#subtypeHolder = this.shadowRoot.querySelector('#subtypeHolder')
-        this.#attackHolder = this.shadowRoot.querySelector('#attackHolder')
-        this.#attributesHolder = this.shadowRoot.querySelector('#attributesHolder')
-        this.#tableHolder = this.shadowRoot.querySelector('#tableHolder')
-        this.monsterGenerator = new MonsterGenerator()
-        this.monsterInfo = this.monsterGenerator.getRandomMonster()
-        this.#typeHolder.textContent = this.monsterInfo.Type
-        this.#subtypeHolder.textContent = this.monsterInfo.Subtype
-        this.#attackHolder.textContent = `Main attack : ${this.monsterInfo.NormalAttack} \n Legendary attack : ${this.monsterInfo.LegendaryAttack}`
-        this.#attributes = getArrayFromString(this.monsterInfo.Traits, ",")
-        console.log(this.#tableHolder.children)
-        for (let index = 0; index < this.#tableHolder.children.length; index++) {
-           this.#tableHolder.children[index].textContent = this.#attributes[index]
-        }
-    }
-
-    addAttributesToTableCells() {
-
     }
 })

@@ -1,4 +1,5 @@
 import './random-character-info.js'
+import './card.js'
 
 const template = document.createElement('template')
 template.innerHTML = `
@@ -40,10 +41,9 @@ template.innerHTML = `
     transition: opacity 0.5s ease-in-out;
 }
 </style>
-<div id="sheetToggleButton"></div>
-<div id="card" class="opacity">
+<fantasy-card id="card">
 <random-character-info></random-character-info>
-<img id="cardIcon" src="../../images/sorceress.jpg">
+</fantasy-card>
 </div>
 `
 
@@ -51,23 +51,11 @@ customElements.define('random-character-card',
 
 class extends HTMLElement {
     #card
-    #cardIcon
-    #sheetToggleButton
     constructor() {
         super()
         this.attachShadow({ mode: 'open' })
         .appendChild(template.content.cloneNode(true))
 
         this.#card = this.shadowRoot.querySelector('#card')
-        this.#sheetToggleButton = this.shadowRoot.querySelector('#sheetToggleButton')
-        this.#cardIcon = this.shadowRoot.querySelector('#cardIcon')
-        this.#sheetToggleButton.addEventListener('click', (event) => {
-             this.flipCharacterCard()
-        })
-    }
-
-    flipCharacterCard() {
-        this.#card.classList.toggle('scaleAnimation')
-        this.#sheetToggleButton.classList.toggle('sheetToggleButtonStyleWhenSheetIsVisble')
     }
 })
