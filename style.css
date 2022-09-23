@@ -7,5 +7,10 @@
 
 #monster {
     position: absolute;
-    margin-left: 300px;
+    margin-left: 100px;
+}
+
+#map {
+    position: absolute;
+    margin-left: 600px;
 }

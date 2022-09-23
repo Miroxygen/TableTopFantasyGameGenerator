@@ -1,5 +1,6 @@
 import './html-components/random-character-card.js'
 import './html-components/random-monster-card.js'
+import './html-components/map.js'
 
 
 /**
@@ -10,9 +11,11 @@ import './html-components/random-monster-card.js'
 export class FantasyComponentConnector {
     #characterCard
     #monsterCard
+    #map
     constructor() {
         this.#characterCard = document.createElement('random-character-card')
         this.#monsterCard = document.createElement('random-monster-card')
+        this.#map = document.createElement('fantasy-map')
     }
 
     connectCharacterCard(HTMLElement) {
@@ -22,4 +25,8 @@ export class FantasyComponentConnector {
     connectMonsterCard(HTMLElement) {
         HTMLElement.appendChild(this.#monsterCard)
     }  
+
+    connectMap(HTMLElement) {
+        HTMLElement.appendChild(this.#map)
+    }
 }

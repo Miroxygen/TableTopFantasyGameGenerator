@@ -22,3 +22,6 @@ console.log(monster)
 
 const monsterEle = document.getElementById("monster")
 fantasyComponentConnector.connectMonsterCard(monsterEle)
+
+const map = document.getElementById("map")
+fantasyComponentConnector.connectMap(map)
