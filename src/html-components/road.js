@@ -5,8 +5,8 @@ const template = document.createElement('template')
 template.innerHTML = `
 <style>
 #road {
-    height:5px;
-    width:5px;
+    height:3px;
+    width:3px;
     background:#4a2c02;
 }
 </style>
