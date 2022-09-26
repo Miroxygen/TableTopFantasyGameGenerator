@@ -1,9 +1,16 @@
-import { CharacterGenerator } from "../generators/character-generator.js"
-import { getArrayFromString } from "../helper-functions/string-to-array.js"
+/**
+ * Component for getting the object data out of CharacterGenerator.
+ *
+ * @author // Miranda Holmlund <mh225wi@lnu.se>
+ * @version 1.0.0
+ */
+
+import { CharacterGenerator } from '../generators/character-generator.js'
+import { getArrayFromString } from '../helper-functions/string-to-array.js'
 
 const characterGenerator = new CharacterGenerator()
 const characterInfo = characterGenerator.getCharacter()
-const characterAttributes = getArrayFromString(characterInfo.Traits, ",")
+const characterAttributes = getArrayFromString(characterInfo.Traits, ',')
 
 const template = document.createElement('template')
 template.innerHTML = `
@@ -90,13 +97,15 @@ table {
 </div>
 `
 
-customElements.define('random-character-info', 
-
-class extends HTMLElement {
-    
-    constructor() {
-        super()
-        this.attachShadow({ mode: 'open' })
+customElements.define('random-character-info',
+/**
+ * Holds the object gotten from CharacterGenerator.
+ * @type {HTMLElement}
+ */
+  class extends HTMLElement {
+    constructor () {
+      super()
+      this.attachShadow({ mode: 'open' })
         .appendChild(template.content.cloneNode(true))
     }
-})
+  })

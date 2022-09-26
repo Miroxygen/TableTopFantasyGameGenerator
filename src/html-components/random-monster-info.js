@@ -1,9 +1,16 @@
-import { MonsterGenerator } from "../generators/monster-generator.js"
-import { getArrayFromString } from "../helper-functions/string-to-array.js"
+/**
+ * Uses the objet data from MonsterGenerator to make a component out of it.
+ *
+ * @author // Miranda Holmlund <mh225wi@lnu.se>
+ * @version 1.0.0
+ */
+
+import { MonsterGenerator } from '../generators/monster-generator.js'
+import { getArrayFromString } from '../helper-functions/string-to-array.js'
 
 const monsterGenerator = new MonsterGenerator()
 const monsterInfo = monsterGenerator.getRandomMonster()
-const monsterAttributes = getArrayFromString(monsterInfo.Traits, ",")
+const monsterAttributes = getArrayFromString(monsterInfo.Traits, ',')
 
 const template = document.createElement('template')
 template.innerHTML = `
@@ -103,13 +110,15 @@ Legendary attack : ${monsterInfo.LegendaryAttack}
 </div>
 `
 
-customElements.define('random-monster-info', 
-
-class extends HTMLElement {
-    
-    constructor() {
-        super()
-        this.attachShadow({ mode: 'open' })
+customElements.define('random-monster-info',
+/**
+ * Doesnt do anything but display data.
+ * @type {HTMLElement}
+ */
+  class extends HTMLElement {
+    constructor () {
+      super()
+      this.attachShadow({ mode: 'open' })
         .appendChild(template.content.cloneNode(true))
     }
-})
+  })

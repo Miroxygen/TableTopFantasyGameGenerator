@@ -1,3 +1,10 @@
+/**
+ * Base for both monster and character card.
+ *
+ * @author // Miranda Holmlund <mh225wi@lnu.se>
+ * @version 1.0.0
+ */
+
 const template = document.createElement('template')
 template.innerHTML = `
 <style>
@@ -51,33 +58,54 @@ template.innerHTML = `
 </div>
 `
 
-customElements.define('fantasy-card', 
-
-class extends HTMLElement {
+customElements.define('fantasy-card',
+/**
+ * The outwards appereance for the characterGenerator.
+ * @type {HTMLElement}
+ */
+  class extends HTMLElement {
+    /**
+     * A div.
+     * @type {HTMLElement}
+     */
     #card
+    /**
+     * Toggle as in toggle visibilty of #card.
+     * @type {HTMLElement}
+     */
     #sheetToggleButton
-    constructor() {
-        super()
-        this.attachShadow({ mode: 'open' })
+    constructor () {
+      super()
+      this.attachShadow({ mode: 'open' })
         .appendChild(template.content.cloneNode(true))
 
-        this.#card = this.shadowRoot.querySelector('#card')
-        this.#sheetToggleButton = this.shadowRoot.querySelector('#sheetToggleButton')
-        this.#sheetToggleButton.addEventListener('click', (event) => {
-             this.openCard()
-        })
+      this.#card = this.shadowRoot.querySelector('#card')
+      this.#sheetToggleButton = this.shadowRoot.querySelector('#sheetToggleButton')
+      this.#sheetToggleButton.addEventListener('click', (event) => {
+        this.openCard()
+      })
     }
 
-    openCard() {
-        this.#card.classList.toggle('scaleAnimation')
-        this.#sheetToggleButton.classList.toggle('sheetToggleButtonStyleWhenSheetIsVisble')
+    /**
+     * Open's the card, makes it visible.
+     */
+    openCard () {
+      this.#card.classList.toggle('scaleAnimation')
+      this.#sheetToggleButton.classList.toggle('sheetToggleButtonStyleWhenSheetIsVisble')
     }
 
-    setMonsterStyle() {
-        this.#card.classList.add('monsterStyleCard')
+    /**
+     * To differentiate monster and characters card.
+     */
+    setMonsterStyle () {
+      this.#card.classList.add('monsterStyleCard')
     }
 
-    setCharacterStyle() {
-        this.#card.classList.add('characterStyleCard')
+    /**
+     * You can change these two styles if you please. (this function and setMonsterStyle)
+     * Check the classes up above.
+     */
+    setCharacterStyle () {
+      this.#card.classList.add('characterStyleCard')
     }
-})
+  })

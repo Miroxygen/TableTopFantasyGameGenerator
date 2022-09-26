@@ -1,3 +1,7 @@
+/**
+ * @author // Miranda Holmlund <mh225wi@lnu.se>
+ * @version 1.0.0
+ */
 
 /**
  * Head class for all the resources.
@@ -6,24 +10,21 @@
  * to be used on its own.
  */
 export class Resource {
-    constructor() {
-
-    }
-
-    /**
-     * @param {array} resourceArray 
+  /**
+     * Please only use arrays or it will crash.
+     * @param {array} resourceArray
      * @returns Random index element.
      */
-    getRandomResource(resourceArray) {
-        try {
-            if(Array.isArray(resourceArray)) {
-                const randomNumber = Math.floor(Math.random() * resourceArray.length)
-                return resourceArray[randomNumber]
-            } else {
-                throw new Error("Trying to use something else than array in getRandomResource")
-            }
-        } catch (error) {
-            console.error(error)
-        }
+  getRandomResource (resourceArray) {
+    try {
+      if (Array.isArray(resourceArray)) {
+        const randomNumber = Math.floor(Math.random() * resourceArray.length)
+        return resourceArray[randomNumber]
+      } else {
+        throw new Error('Trying to use something else than array in getRandomResource')
+      }
+    } catch (error) {
+      console.error(error)
     }
+  }
 }

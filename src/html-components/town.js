@@ -1,4 +1,9 @@
-
+/**
+ * Town for map.js.
+ *
+ * @author // Miranda Holmlund <mh225wi@lnu.se>
+ * @version 1.0.0
+ */
 
 const template = document.createElement('template')
 template.innerHTML = `
@@ -30,16 +35,27 @@ template.innerHTML = `
 </div>
 `
 
-customElements.define('fantasy-town', 
-
-class extends HTMLElement {
+customElements.define('fantasy-town',
+/**
+ * Represents a town on the map, and it look like a house.
+ * Feel free to change size or colour.
+ */
+  class extends HTMLElement {
+    /**
+     * The roof of the house.
+     * @type {HTMLElement}
+     */
     #roof
+    /**
+     * Bottom part of house.
+     * @type {HTMLElement}
+     */
     #bottom
-    constructor() {
-        super()
-        this.attachShadow({ mode: 'open' })
+    constructor () {
+      super()
+      this.attachShadow({ mode: 'open' })
         .appendChild(template.content.cloneNode(true))
-        this.#roof = this.shadowRoot.querySelector('#roof')
-        this.#bottom = this.shadowRoot.querySelector('#bottom')
+      this.#roof = this.shadowRoot.querySelector('#roof')
+      this.#bottom = this.shadowRoot.querySelector('#bottom')
     }
-})
+  })

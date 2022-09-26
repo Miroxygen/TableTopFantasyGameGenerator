@@ -1,3 +1,10 @@
+/**
+ * The "finished" card.
+ *
+ * @author // Miranda Holmlund <mh225wi@lnu.se>
+ * @version 1.0.0
+ */
+
 import './random-character-info.js'
 import './card.js'
 
@@ -20,18 +27,26 @@ template.innerHTML = `
 </div>
 `
 
-customElements.define('random-character-card', 
-
-class extends HTMLElement {
+customElements.define('random-character-card',
+/**
+ * Connect custom elements fantasy-card and random-character info
+ * to make a random character card.
+ * @type {HTMLElement}
+ */
+  class extends HTMLElement {
+    /**
+     * The custom fantasy-card from card.js
+     * @type {HTMLElement}
+     */
     #card
-    constructor() {
-        super()
-        this.attachShadow({ mode: 'open' })
+    constructor () {
+      super()
+      this.attachShadow({ mode: 'open' })
         .appendChild(template.content.cloneNode(true))
 
-        this.#card = this.shadowRoot.querySelector('#card')
-        this.#card.addEventListener('click', () => {
-            this.#card.setCharacterStyle()
-        })
+      this.#card = this.shadowRoot.querySelector('#card')
+      this.#card.addEventListener('click', () => {
+        this.#card.setCharacterStyle()
+      })
     }
-})
+  })
