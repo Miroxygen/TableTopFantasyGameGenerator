@@ -8,7 +8,7 @@ import './html-components/map.js'
  * This class can connect the custom ones to an HTML
  * component in your document.
  */
-export class FantasyComponentConnector {
+export class FantasyContentGenerator {
     #characterCard
     #monsterCard
     #map
