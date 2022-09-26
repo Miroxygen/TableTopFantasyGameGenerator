@@ -1,13 +1,13 @@
 # TableTopFantasyGameGenerator
 Generates content for certain fantasy table top games!
 
-#What content can I generate with this?
+# What content can I generate with this?
 
 At the moment you can generate a random character, a random monster and a random map.
 The character and monsters can either generate a raw object, or an HTML object representing
 a card. The map can only generate an HTML object.
 
-#How do I generate a character object?
+# How do I generate a character object?
 
 
 ![Skärmbild 2022-09-26 160041](https://user-images.githubusercontent.com/89847326/192296161-f797a247-d6c6-4691-8f28-32a22e5d3f6d.png)
@@ -24,7 +24,7 @@ The data inside the new variable will be something like this.
 
 ![Skärmbild 2022-09-26 160327](https://user-images.githubusercontent.com/89847326/192296941-c9d910a9-bbcf-4970-a459-e1bf5be7eaf4.png)
 
-#How do I generate a monster object?
+# How do I generate a monster object?
 
 Almost same procedure as character object.
 Import the MonsterGenerator using relative links.
@@ -40,7 +40,7 @@ The data inside the new variable will be something like this.
 ![Skärmbild 2022-09-26 160822](https://user-images.githubusercontent.com/89847326/192298022-844a7ba9-a263-4f2f-b0c2-26e51b604b20.png)
 
 
-#How do I generate an HTML Object?
+# How do I generate an HTML Object?
 
 By using the class FantasyContentGenerator.
 Import the FantasyContentGenerator with relative links.
@@ -65,15 +65,20 @@ With the three methods, connectCharacterCard(), connectMonsterCard() and connect
 Please look at the picture for the code.
 
 
-#Can I change the way the cards and map look?
+# Can I change the way the cards and map look?
 
 Sure, you can change the CSS color property in the respective custom html objects files style.
 I don't recommend changing any other CSS property than color.
 
 
-#Will something more be added/perfected?
+# Will something more be added/perfected?
 
 The way the cards and the map looks is very primitive. That will be my priority for any updates. 
+
+
+# Bugs
+
+No currently known bugs. Let me know!
 
 
 
