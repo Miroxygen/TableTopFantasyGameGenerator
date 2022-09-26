@@ -12,7 +12,7 @@ export class MonsterType extends Resource{
     }
 
    
-   #getAllMonsterTypes() {
+   getAllMonsterTypes() {
     const arrayCopy = Array.from(this.#allMonsterTypes)
     return arrayCopy
    }

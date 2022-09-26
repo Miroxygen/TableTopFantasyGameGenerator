@@ -9,7 +9,7 @@ export class FantasyClasses extends Resource {
     }
 
 
-    #getAllFantasyClasses() {
+    getAllFantasyClasses() {
         const arrayCopy = Array.from(this.#allFantasyClasses)
         return arrayCopy
     }
