@@ -47,10 +47,10 @@ Lista de enskilda testfallen. **Fetmarkera** sådant som du själv fyllt i. En r
 | --------- | --------- | ------ | ------- |
 | Att ett karaktärsobjekt skapas|[Testfall](https://github.com/Miroxygen/TableTopFantasyGameGenerator/wiki/Tests#uc1-randomize-a-random-fantasy-character)||PASS|
 | Att ett karaktärsHTMLobjekt skapas|[Testfall](https://github.com/Miroxygen/TableTopFantasyGameGenerator/wiki/Tests#uc4-create-an-html-component-from-the-randomized-generator-classes)||PASS| 
-| Att ett monsterobjekt skapas|[Testfall](https://github.com/Miroxygen/TableTopFantasyGameGenerator/wiki/Tests#uc2-randomize-a-fantasy-monster)|PASS|
+| Att ett monsterobjekt skapas|[Testfall](https://github.com/Miroxygen/TableTopFantasyGameGenerator/wiki/Tests#uc2-randomize-a-fantasy-monster)||PASS|
 | Att ett monsterHTMLobjekt skapas|[Testfall](https://github.com/Miroxygen/TableTopFantasyGameGenerator/wiki/Tests#uc4-create-an-html-component-from-the-randomized-generator-classes)||PASS|
 | Att ett slumpmässig kartHTMLobjekt skapas|[Testfall](https://github.com/Miroxygen/TableTopFantasyGameGenerator/wiki/Tests#uc4-create-an-html-component-from-the-randomized-generator-classes)||PASS|
-| Att resurser faktiskt är slumpmässiga|[Testfall](https://github.com/Miroxygen/TableTopFantasyGameGenerator/wiki/Tests#automatic-tests)|PASS|
+| Att resurser faktiskt är slumpmässiga|[Testfall](https://github.com/Miroxygen/TableTopFantasyGameGenerator/wiki/Tests#automatic-tests)||PASS|
 | Att generator klassen faktiskt ger mig slumpmässiga karaktärer och monster |[Testfall](https://github.com/Miroxygen/TableTopFantasyGameGenerator/wiki/Tests#automatic-tests)||PASS|
 | Att Map klassen faktist ger slumpmässiga olika maps |[Testfall](https://github.com/Miroxygen/TableTopFantasyGameGenerator/wiki/Tests#uc5-make-sure-the-map-is-random)||PASS|
 
